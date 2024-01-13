@@ -3,7 +3,7 @@ import { Suspense, ReactNode } from "react";
 import { Navigate, } from "react-router-dom";
 
 // Utils
-import { getUserData, getHomeRouteForLoggedInUser } from "../../utility";
+import { getUserData, getHomeRouteForLoggedInUser, User } from "../../utility";
 
 interface PublicRouteProps {
   children: ReactNode;
@@ -12,7 +12,7 @@ interface PublicRouteProps {
 
 const PublicRoute: React.FC<PublicRouteProps> = ({ children, route }) => {
   if (route) {
-    const user = getUserData();
+    const user: User = getUserData();
 
     const restrictedRoute = route.meta && route.meta.restricted;
 
