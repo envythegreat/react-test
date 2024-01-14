@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "normalize.css"
 import './assets/scss/core.scss'
 
