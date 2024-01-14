@@ -7,16 +7,17 @@ interface InputProps {
   placeholder?: string;
   value: any;
   onChange: (event: ChangeEvent<any>) => void; // Change this line
+  styles?:string
 }
 
-const InputComponent: React.FC<InputProps> = ({ type, placeholder, value, onChange }) => {
+const InputComponent: React.FC<InputProps> = ({ type, placeholder, value, onChange, styles }) => {
   return (
     <BlankInput
       type={type}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className="custom-input"
+      className={styles ? styles : "custom-input"}
     />
   );
 };

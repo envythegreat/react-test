@@ -21,17 +21,31 @@ body {
   align-items: center;
 }
 .app-wrapper {
-  
   border-radius: 5px;
   width: 98%;
-  margin: 20px auto;
+  margin: 0 auto;
   background-color: #fdfdfd;
   box-shadow: 2.86px 3.81px 3.81px 0 rgba(0, 0, 0, 0.1);
   padding: 10px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  align-content: center;
+  margin-bottom: 20px;
+}
+
+.header {
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  color: #50799e;
+  font-size: 30.013px;
+  font-style: normal;
+  font-weight: 500;
+  .default-column {
+    display: flex;
+    align-items: baseline;
+    align-content: baseline;
+  }
 }
 .login-container {
   width: 100%;
@@ -81,7 +95,14 @@ h1 {
   font-style: thin;
   font-weight: 400;
 }
-
+.trasparent-button {
+  border-radius: 31.5px;
+  border: 2px solid #50799e;
+  background: transparent;
+  width: 120px;
+  height: 45px;
+  flex-shrink: 0;
+}
 .custom-button {
   border-radius: 5.878px;
   background: linear-gradient(109deg, #20a8d3 5.8%, #01d1ff 122.34%);

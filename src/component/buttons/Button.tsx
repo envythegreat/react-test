@@ -6,6 +6,7 @@ interface ButtonComponentProps {
   backgroundColor?: string;
   icon?: React.ReactNode; // Icon can be any valid React node
   onClick: () => void;
+  classes?: string;
 }
 
 const Button: React.FC<ButtonComponentProps> = ({
@@ -13,11 +14,12 @@ const Button: React.FC<ButtonComponentProps> = ({
   icon,
   onClick,
   text,
+  classes,
 }) => {
   return (
     <button
       style={{ backgroundColor }}
-      className="custom-button"
+      className={classes ? classes : "custom-button"}
       onClick={onClick}
     >
       <span>{text}</span>
