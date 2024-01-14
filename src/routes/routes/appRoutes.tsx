@@ -1,6 +1,7 @@
 import { ReactNode, lazy } from "react";
 const Login = lazy(() => import("../../views/auth/login"))
 const Home = lazy(() => import("../../views/app/Home"))
+const Patient = lazy(() => import("../../views/app/NewPatient"))
 
 interface AppRoute {
   path: string;
@@ -23,6 +24,14 @@ const AppRoutes: AppRoute[] = [
   {
     path: "/home",
     element: <Home />,
+    meta: {
+      layout: "MainLayout",
+      publicRoute: true,
+    },
+  },
+  {
+    path: "/Patient",
+    element: <Patient />,
     meta: {
       layout: "MainLayout",
       publicRoute: true,

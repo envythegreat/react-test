@@ -43,8 +43,41 @@ body {
   font-weight: 500;
   .default-column {
     display: flex;
-    align-items: baseline;
-    align-content: baseline;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .header-input {
+    border-radius: 31.5px;
+    border: 2px solid #50799e;
+    background: #fff;
+    height: 45px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(105, 141, 169, 0.37);
+    margin: 0px 10px;
+  }
+  .overridebtn {
+    height: 45px;
+    border-radius: 28px;
+    background: #1aa5c0;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 60%;
+  }
+  .trasparent-button {
+    border-radius: 31.5px;
+    border: 2px solid #50799e;
+    background: transparent;
+    width: 120px;
+    height: 45px;
+    flex-shrink: 0;
+    font-size: 18.303px;
+    font-style: normal;
+    font-weight: 500;
+    color: #50799e;
+    span {
+      margin-right: 5px;
+    }
   }
 }
 .login-container {
@@ -95,14 +128,7 @@ h1 {
   font-style: thin;
   font-weight: 400;
 }
-.trasparent-button {
-  border-radius: 31.5px;
-  border: 2px solid #50799e;
-  background: transparent;
-  width: 120px;
-  height: 45px;
-  flex-shrink: 0;
-}
+
 .custom-button {
   border-radius: 5.878px;
   background: linear-gradient(109deg, #20a8d3 5.8%, #01d1ff 122.34%);
@@ -127,4 +153,58 @@ h1 {
   flex-shrink: 0;
   border-radius: 4px;
   background-color: #d7d7d7;
+}
+
+.form-wrapper {
+  padding: 15px;
+  margin: 10px;
+}
+
+.table-wrapper {
+  border-radius: 10.218px;
+  border: 2px solid #50799e;
+  background: rgba(249, 249, 249, 0.27);
+  padding: 15px;
+  margin: 10px;
+  .rdt_TableHead {
+    color: #1aa5c0;
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12.879px; /* 64.955% */
+  }
+  .rdt_TableRow {
+    color: #50799e;
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12.879px;
+  }
+}
+.patients{
+  display: flex;
+  justify-content: flex-start !important;
+  align-items: flex-end;
+  span {
+    margin:0px 10px
+  }
+}
+
+.button-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // background-color: red;
+  margin: auto;
+  margin-top: 30px;
+  .btn-w {
+    width: 20%;
+  }
+  .gray{
+    background: #E5E5E5 !important;
+  }
 }

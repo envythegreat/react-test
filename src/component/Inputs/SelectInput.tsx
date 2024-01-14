@@ -1,45 +1,42 @@
-// InputComponent.tsx
 import React from "react";
-import { FormGroup, Input } from "reactstrap";
-
+import { Input, FormGroup } from "reactstrap";
 interface Option {
   label: string;
   value: string | number;
 }
-
-interface SelectProps {
+interface SelectInputProps {
+  name: string;
+  id: string;
   options: Option[];
-  value: string | number;
-  onChange: (selectedValue: string | number) => void;
+  value: string;
+  onChange: (name: string, value: string) => void; // Correct the signature
 }
 
-
-
-const SelectInput: React.FC<SelectProps> = ({ options, value, onChange }) => {
-  const handleSelectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
-
+const SelectInput: React.FC<SelectInputProps> = ({
+  name,
+  id,
+  options,
+  value,
+  onChange,
+}) => {
   return (
     <FormGroup>
-      {/* <Label for="exampleSelect">Select</Label> */}
+      {/* <Label for={name}>{name}</Label> */}
       <Input
-        name="select"
         type="select"
+        name={name}
+        id={id}
         value={value}
-        onChange={handleSelectChange}
+        onChange={(e) => onChange(name, e.target.value)}
         className="custom-input"
       >
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option key={option.label} value={option.value}>
             {option.label}
           </option>
         ))}
       </Input>
     </FormGroup>
-    // <select value={value} onChange={handleSelectChange} className="custom-select">
-
-    // </select>
   );
 };
 
