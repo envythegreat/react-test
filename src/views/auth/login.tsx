@@ -18,9 +18,13 @@ const Login: React.FC<LoginProps> = () => {
   };
 
   const options = [
-    { label: "Option 1", value: "option1" },
-    { label: "Option 2", value: "option2" },
-    { label: "Option 3", value: "option3" },
+    { label: "Casablanca", value: "Casablanca" },
+    { label: "Rabat", value: "Rabat" },
+  ];
+
+  const box = [
+    { label: "Box 1", value: "Box1" },
+    { label: "Box 2", value: "Box2" },
   ];
 
   const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -60,20 +64,20 @@ const Login: React.FC<LoginProps> = () => {
               onChange={handleSelectChange}
             />
             <SelectInput
-              options={options}
+              options={box}
               value={selectedOption}
               onChange={handleSelectChange}
             />
             <Divider />
             <Input
               type="text"
-              placeholder="Username"
+              placeholder="Entrez votre identifiant"
               value={username}
               onChange={handleUsernameChange}
             />
             <Input
               type="text"
-              placeholder="Username"
+              placeholder="Tapez votre mot de passe"
               value={username}
               onChange={handleUsernameChange}
             />

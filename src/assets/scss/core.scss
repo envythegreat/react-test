@@ -7,7 +7,6 @@
 body {
   font-family: Arial, sans-serif;
   // Add any other body styles as needed
-  
 }
 .layout-container {
   display: flex;
@@ -21,7 +20,19 @@ body {
   color: #ffffff; // Set text color for better readability
   align-items: center;
 }
-
+.app-wrapper {
+  
+  border-radius: 5px;
+  width: 98%;
+  margin: 20px auto;
+  background-color: #fdfdfd;
+  box-shadow: 2.86px 3.81px 3.81px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 .login-container {
   width: 100%;
   display: flex;
@@ -66,8 +77,8 @@ h1 {
   padding: 10px 15px;
   margin: 10px 0px;
   font-size: 16px;
-  color: #1AA5C0;
-  font-style: normal;
+  color: #1aa5c0;
+  font-style: thin;
   font-weight: 400;
 }
 
@@ -86,7 +97,7 @@ h1 {
   border: none;
   font-weight: 700;
   font-size: 18px;
-  span{
+  span {
     margin-right: 10px;
   }
 }
@@ -94,5 +105,5 @@ h1 {
   height: 2px;
   flex-shrink: 0;
   border-radius: 4px;
-  background-color: #D7D7D7;
+  background-color: #d7d7d7;
 }
