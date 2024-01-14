@@ -208,3 +208,13 @@ h1 {
     background: #E5E5E5 !important;
   }
 }
+
+.calendar{
+  color: #50799E;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  span {
+    margin: 0px 10px;
+  }
+}

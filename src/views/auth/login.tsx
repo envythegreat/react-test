@@ -1,20 +1,34 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState } from "react";
 import { Form } from "reactstrap";
-import { SelectInput, Input, Button, Divider} from "../../component";
-import {ArrowsIcon} from '../../component/icons'
+import { SelectInput, Input, Button, Divider } from "../../component";
+import { ArrowsIcon } from "../../component/icons";
+
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { login, authSelector } from "../../redux/authReducer";
 interface LoginProps {
   // Define any props you might need
 }
 
 const Login: React.FC<LoginProps> = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const dispatch = useAppDispatch();
+  const { loading, error } = useAppSelector(authSelector);
+  // const [error, setError] = useState<string>("");
 
-  const [selectedOption, setSelectedOption] = useState<string | number>(""); // Change here
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    box: "",
+    region: "",
+  });
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-  const handleSelectChange = (selectedValue: string | number) => {
-    setSelectedOption(selectedValue);
+  const handleSelectChange = (name: string, value: string | number) => {
+    setFormData((prevData) => ({ ...prevData, [name]: value.toString() }));
   };
 
   const options = [
@@ -27,29 +41,13 @@ const Login: React.FC<LoginProps> = () => {
     { label: "Box 2", value: "Box2" },
   ];
 
-  const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.target.value);
-  };
-
-  const handleButtonClick = () => {
-    alert("Button clicked!");
-  };
   const handleLogin = (): void => {
     // Basic validation
-    if (!username || !password) {
-      setError("Please enter both username and password.");
-      return;
-    }
-
-    // Perform authentication logic here (e.g., API call, etc.)
-    // For simplicity, let's assume a successful login after a brief delay
-    setTimeout(() => {
-      console.log("Login successful!");
-      // Reset form fields and error state after successful login
-      setUsername("");
-      setPassword("");
-      setError("");
-    }, 1000);
+    // if (!username || !password) {
+    //   setError("Please enter both username and password.");
+    //   return;
+    // }
+    dispatch(login(formData));
   };
 
   return (
@@ -57,37 +55,43 @@ const Login: React.FC<LoginProps> = () => {
       <div className="login-box">
         <p>Connectez-vous à votre compte</p>
         <div className="form-container">
-          <Form>
+          < >
             <SelectInput
-              options={options}
-              value={selectedOption}
+              name={"region"}
+              id={"region"}
+              options={options} // Replace with your options
               onChange={handleSelectChange}
+              value={formData["region"] || ""}
             />
             <SelectInput
-              options={box}
-              value={selectedOption}
+              name={"box"}
+              id={"box"}
+              options={box} // Replace with your options
               onChange={handleSelectChange}
+              value={formData["box"] || ""}
             />
             <Divider />
             <Input
               type="text"
-              placeholder="Entrez votre identifiant"
-              value={username}
-              onChange={handleUsernameChange}
+              name={"username"}
+              placeholder={"Entrez votre identifiant"}
+              value={formData["username"] || ""}
+              onChange={handleInputChange}
             />
             <Input
               type="text"
-              placeholder="Tapez votre mot de passe"
-              value={username}
-              onChange={handleUsernameChange}
+              name={"password"}
+              placeholder={"Tapez votre mot de passe"}
+              value={formData["password"] || ""}
+              onChange={handleInputChange}
             />
             <Button
               text="Connexion"
               backgroundColor="#3498db"
               icon={<ArrowsIcon width={14} height={14} />} // Replace with your icon component or JSX
-              onClick={handleButtonClick}
+              onClick={handleLogin}
             />
-          </Form>
+          </>
         </div>
       </div>
     </div>
